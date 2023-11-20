@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvgw16sf8cvfl"
-path="res://.godot/imported/1.png-2816174d817004d30f78beebb4a51016.ctex"
+uid="uid://cyluspp3puj2q"
+path="res://.godot/imported/endOfGameBG.png-af61183d1681f0f6e9b6920c39664f8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/ampoules/1.png"
-dest_files=["res://.godot/imported/1.png-2816174d817004d30f78beebb4a51016.ctex"]
+source_file="res://Assets/Images/endOfGameBG.png"
+dest_files=["res://.godot/imported/endOfGameBG.png-af61183d1681f0f6e9b6920c39664f8b.ctex"]
 
 [params]
 

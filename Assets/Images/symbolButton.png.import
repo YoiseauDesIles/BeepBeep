@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgxi0inrvnvs4"
-path="res://.godot/imported/valise ouverte gagné.png-435ad1fe9f940c29222eeaa90a3cbdcd.ctex"
+uid="uid://d321pk5okaoer"
+path="res://.godot/imported/symbolButton.png-8b6f9d8dfc4b3a55fd8514acbc4e892d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/sprite/valise ouverte gagné.png"
-dest_files=["res://.godot/imported/valise ouverte gagné.png-435ad1fe9f940c29222eeaa90a3cbdcd.ctex"]
+source_file="res://Assets/Images/symbolButton.png"
+dest_files=["res://.godot/imported/symbolButton.png-8b6f9d8dfc4b3a55fd8514acbc4e892d.ctex"]
 
 [params]
 

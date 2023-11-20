@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boxdv5b4r6nc2"
-path="res://.godot/imported/valiseferme.png-6ab9df3cb84382c0c9551ef37b58ff8f.ctex"
+uid="uid://ceb58ii8r4qw2"
+path="res://.godot/imported/valiseferme.png-695dcf76bcdc628964d1dd8691e13d75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/sprite/valiseferme.png"
-dest_files=["res://.godot/imported/valiseferme.png-6ab9df3cb84382c0c9551ef37b58ff8f.ctex"]
+source_file="res://Assets/Images/valiseferme.png"
+dest_files=["res://.godot/imported/valiseferme.png-695dcf76bcdc628964d1dd8691e13d75.ctex"]
 
 [params]
 

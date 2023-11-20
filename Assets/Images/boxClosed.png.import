@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ltomn6jlmv2h"
-path="res://.godot/imported/par dessus quand fini.png-412ad40014c9ed154164d8f925195311.ctex"
+uid="uid://ph751brwbutt"
+path="res://.godot/imported/boxClosed.png-6e51bb68b063f18e265db3b377d57da4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/sprite/par dessus quand fini.png"
-dest_files=["res://.godot/imported/par dessus quand fini.png-412ad40014c9ed154164d8f925195311.ctex"]
+source_file="res://Assets/Images/boxClosed.png"
+dest_files=["res://.godot/imported/boxClosed.png-6e51bb68b063f18e265db3b377d57da4.ctex"]
 
 [params]
 

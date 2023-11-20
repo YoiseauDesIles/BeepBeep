@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://35xvmex7mao3"
-path="res://.godot/imported/ecran d'accueil a mettre sur le jeu au debut.png-fb2b2958a7b412a6d428cbbb0ce3dda1.ctex"
+uid="uid://cfv2rbagtul03"
+path="res://.godot/imported/symbols3.png-f3b72f49b3543a8d555f335b849ed631.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/sprite/ecran d'accueil a mettre sur le jeu au debut.png"
-dest_files=["res://.godot/imported/ecran d'accueil a mettre sur le jeu au debut.png-fb2b2958a7b412a6d428cbbb0ce3dda1.ctex"]
+source_file="res://Assets/Images/symbols3.png"
+dest_files=["res://.godot/imported/symbols3.png-f3b72f49b3543a8d555f335b849ed631.ctex"]
 
 [params]
 

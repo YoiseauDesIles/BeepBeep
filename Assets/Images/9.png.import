@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbkd4rm12bodm"
-path="res://.godot/imported/lumiere bouton.png-b43d9c11548f9672ff349acb93b6425a.ctex"
+uid="uid://dckt7clbp1ggx"
+path="res://.godot/imported/9.png-993a6e429ae223157ee3f014b531e529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/sprite/lumiere bouton.png"
-dest_files=["res://.godot/imported/lumiere bouton.png-b43d9c11548f9672ff349acb93b6425a.ctex"]
+source_file="res://Assets/Images/9.png"
+dest_files=["res://.godot/imported/9.png-993a6e429ae223157ee3f014b531e529.ctex"]
 
 [params]
 

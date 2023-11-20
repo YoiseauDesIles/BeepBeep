@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dawyvx2q13w1i"
-path="res://.godot/imported/bouton.png-d7c5ba2641e3d7561339dd99d9378757.ctex"
+uid="uid://yq2duv122twe"
+path="res://.godot/imported/symbols.png-fae22500953c919692d623c2dc6f8791.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/sprite/bouton.png"
-dest_files=["res://.godot/imported/bouton.png-d7c5ba2641e3d7561339dd99d9378757.ctex"]
+source_file="res://Assets/Images/symbols.png"
+dest_files=["res://.godot/imported/symbols.png-fae22500953c919692d623c2dc6f8791.ctex"]
 
 [params]
 

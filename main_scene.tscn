@@ -1,0 +1,362 @@
+[gd_scene load_steps=25 format=3 uid="uid://c0pv0ocq3uyir"]
+
+[ext_resource type="Texture2D" uid="uid://bav62vwshgccm" path="res://Assets/Images/mainScreen.png" id="1_egjhn"]
+[ext_resource type="Script" path="res://game.gd" id="2_lrmb1"]
+[ext_resource type="Script" path="res://CodeScene.gd" id="3_333cd"]
+[ext_resource type="Script" path="res://gameBG.gd" id="3_xy032"]
+[ext_resource type="Texture2D" uid="uid://dhg4r5dcv0sr" path="res://Assets/Images/codeBG.png" id="4_b6os7"]
+[ext_resource type="Texture2D" uid="uid://ceb58ii8r4qw2" path="res://Assets/Images/valiseferme.png" id="5_5xlna"]
+[ext_resource type="Texture2D" uid="uid://d321pk5okaoer" path="res://Assets/Images/symbolButton.png" id="5_7on0u"]
+[ext_resource type="Texture2D" uid="uid://8w6hqovgp2tp" path="res://Assets/Images/1.png" id="6_brxm1"]
+[ext_resource type="Texture2D" uid="uid://b4j8ulhpbch46" path="res://Assets/Images/2.png" id="7_s5oe2"]
+[ext_resource type="Texture2D" uid="uid://y0y667qgeb05" path="res://Assets/Images/3.png" id="8_8rui2"]
+[ext_resource type="Texture2D" uid="uid://mmec6chkv4ig" path="res://Assets/Images/pushBtn.png" id="9_hyn4o"]
+[ext_resource type="Texture2D" uid="uid://7jls7c61rmc6" path="res://Assets/Images/4.png" id="10_bsn05"]
+[ext_resource type="Texture2D" uid="uid://dxl3gymyu3t6b" path="res://Assets/Images/5.png" id="11_1r5mm"]
+[ext_resource type="Texture2D" uid="uid://de3p0a47mr83t" path="res://Assets/Images/6.png" id="12_31kye"]
+[ext_resource type="Texture2D" uid="uid://b64nx3avo8462" path="res://Assets/Images/7.png" id="13_najy2"]
+[ext_resource type="Texture2D" uid="uid://hkf1plwu6htw" path="res://Assets/Images/8.png" id="14_6crdq"]
+[ext_resource type="Texture2D" uid="uid://dckt7clbp1ggx" path="res://Assets/Images/9.png" id="15_ygqkc"]
+[ext_resource type="Script" path="res://briefCase.gd" id="17_rbrk0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgkml"]
+size = Vector2(522, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15eh2"]
+size = Vector2(559.5, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agaqb"]
+size = Vector2(905, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c46bg"]
+size = Vector2(169.804, 84.9017)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvex6"]
+radius = 181.792
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ncfr"]
+size = Vector2(65.3193, 33.6494)
+
+[node name="MainScene" type="Node2D"]
+
+[node name="GameScene" type="Node2D" parent="."]
+script = ExtResource("2_lrmb1")
+
+[node name="Background" type="Sprite2D" parent="GameScene"]
+position = Vector2(574, 326)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_egjhn")
+script = ExtResource("3_xy032")
+
+[node name="writeTheCode" type="Area2D" parent="GameScene"]
+script = ExtResource("2_lrmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/writeTheCode"]
+position = Vector2(268, 490)
+shape = SubResource("RectangleShape2D_hgkml")
+
+[node name="pushTheButton" type="Area2D" parent="GameScene"]
+script = ExtResource("2_lrmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/pushTheButton"]
+position = Vector2(287.25, 552)
+shape = SubResource("RectangleShape2D_15eh2")
+
+[node name="cutTheStrings" type="Area2D" parent="GameScene"]
+script = ExtResource("2_lrmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/cutTheStrings"]
+position = Vector2(460.5, 614.5)
+shape = SubResource("RectangleShape2D_agaqb")
+
+[node name="CodeScene" type="Node2D" parent="GameScene"]
+visible = false
+z_index = 1
+script = ExtResource("3_333cd")
+
+[node name="Background" type="Sprite2D" parent="GameScene/CodeScene"]
+z_index = 1
+position = Vector2(578.333, 324.625)
+scale = Vector2(0.600694, 0.600694)
+texture = ExtResource("4_b6os7")
+
+[node name="bnt1" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(184.232, -1.04041)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/bnt1"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/bnt1"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/bnt1/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("6_brxm1")
+
+[node name="btn2" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(368.464, -2.08087)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn2"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn2"]
+z_index = 2
+position = Vector2(35.5138, 2.70513)
+scale = Vector2(1.01412, 1.01412)
+texture = ExtResource("5_7on0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="GameScene/CodeScene/Background/btn2/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("7_s5oe2")
+
+[node name="btn3" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(548.81, -2.70526)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn3"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn3"]
+z_index = 2
+position = Vector2(39.9538, 4.99428)
+scale = Vector2(0.925464, 0.973282)
+texture = ExtResource("5_7on0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="GameScene/CodeScene/Background/btn3/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("8_8rui2")
+
+[node name="pushBtn" type="Area2D" parent="GameScene/CodeScene/Background"]
+position = Vector2(-450.034, 12.2775)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/pushBtn"]
+shape = SubResource("CircleShape2D_pvex6")
+
+[node name="Sprite2D" type="Sprite2D" parent="GameScene/CodeScene/Background/pushBtn"]
+texture = ExtResource("9_hyn4o")
+
+[node name="symbol1" type="Sprite2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(210.868, -242.428)
+texture = ExtResource("6_brxm1")
+
+[node name="symbol2" type="Sprite2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(317.411, -240.763)
+texture = ExtResource("7_s5oe2")
+
+[node name="symbol3" type="Sprite2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(437.273, -235.769)
+texture = ExtResource("8_8rui2")
+
+[node name="symbol4" type="Sprite2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(558.799, -239.098)
+texture = ExtResource("10_bsn05")
+
+[node name="btn4" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(180.902, 112.162)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn4"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn4"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn4/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("10_bsn05")
+
+[node name="btn5" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(369.018, 112.162)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn5"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn5"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn5/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("11_1r5mm")
+
+[node name="btn6" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(550.475, 110.497)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn6"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn6"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn6/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("12_31kye")
+
+[node name="btn7" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(184.232, 222.035)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn7"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn7"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn7/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("13_najy2")
+
+[node name="btn8" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(374.012, 223.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn8"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn8"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn8/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("14_6crdq")
+
+[node name="btn9" type="Area2D" parent="GameScene/CodeScene/Background"]
+z_index = 2
+position = Vector2(557.134, 222.035)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn9"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn9"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn9/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("15_ygqkc")
+
+[node name="ButtonScene" type="Node2D" parent="GameScene"]
+
+[node name="StringsScene" type="Node2D" parent="GameScene"]
+
+[node name="Briefcase" type="Sprite2D" parent="GameScene"]
+z_index = 1
+position = Vector2(634, 304)
+scale = Vector2(0.633588, 0.633588)
+texture = ExtResource("5_5xlna")
+script = ExtResource("17_rbrk0")
+
+[node name="BackBtn" type="Label" parent="GameScene"]
+visible = false
+z_index = 4
+offset_left = 1067.0
+offset_top = 602.0
+offset_right = 1133.0
+offset_bottom = 628.0
+scale = Vector2(1.51563, 1.51563)
+text = "BACK"
+
+[node name="BackArea" type="Area2D" parent="GameScene/BackBtn"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/BackBtn/BackArea"]
+position = Vector2(21.4432, 10.2267)
+shape = SubResource("RectangleShape2D_1ncfr")
+
+[node name="PushBtnScene" type="Node2D" parent="GameScene"]
+
+[node name="CutStringsScene" type="Node2D" parent="GameScene"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Audio" type="Node2D" parent="."]
+
+[connection signal="input_event" from="GameScene/writeTheCode" to="GameScene" method="_on_write_the_code_input_event"]
+[connection signal="mouse_entered" from="GameScene/writeTheCode" to="GameScene/writeTheCode" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/writeTheCode" to="GameScene/writeTheCode" method="changeCursorBack"]
+[connection signal="mouse_entered" from="GameScene/pushTheButton" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/pushTheButton" to="GameScene" method="changeCursorBack"]
+[connection signal="mouse_entered" from="GameScene/cutTheStrings" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/cutTheStrings" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/bnt1" to="GameScene/CodeScene" method="_on_bnt_1_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/bnt1" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/bnt1" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/btn2" to="GameScene/CodeScene" method="_on_btn_2_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn2" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn2" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/btn3" to="GameScene/CodeScene" method="_on_btn_3_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn3" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn3" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/pushBtn" to="GameScene/CodeScene" method="_on_push_btn_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/pushBtn" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/pushBtn" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/btn4" to="GameScene/CodeScene" method="_on_btn_4_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn4" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn4" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/btn5" to="GameScene/CodeScene" method="_on_btn_5_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn5" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn5" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/btn6" to="GameScene/CodeScene" method="_on_btn_6_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn6" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn6" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/btn7" to="GameScene/CodeScene" method="_on_btn_7_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn7" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn7" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/btn8" to="GameScene/CodeScene" method="_on_btn_8_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn8" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn8" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/CodeScene/Background/btn9" to="GameScene/CodeScene" method="_on_btn_9_input_event"]
+[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn9" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn9" to="GameScene" method="changeCursorBack"]
+[connection signal="input_event" from="GameScene/BackBtn/BackArea" to="GameScene" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="GameScene/BackBtn/BackArea" to="GameScene" method="_on_back_area_input_event"]
+[connection signal="mouse_entered" from="GameScene/BackBtn/BackArea" to="GameScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="GameScene/BackBtn/BackArea" to="GameScene" method="changeCursorBack"]

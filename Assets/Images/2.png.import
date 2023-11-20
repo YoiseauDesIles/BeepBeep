@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvgw16sf8cvfl"
-path="res://.godot/imported/1.png-2816174d817004d30f78beebb4a51016.ctex"
+uid="uid://b4j8ulhpbch46"
+path="res://.godot/imported/2.png-8f11f8dc7918f1b48e9f7915c59b8729.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/ampoules/1.png"
-dest_files=["res://.godot/imported/1.png-2816174d817004d30f78beebb4a51016.ctex"]
+source_file="res://Assets/Images/2.png"
+dest_files=["res://.godot/imported/2.png-8f11f8dc7918f1b48e9f7915c59b8729.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2lr24sqyoh0y"
-path="res://.godot/imported/22.png-9524ce735434607167a378db8271d769.ctex"
+uid="uid://cseclx3bcrtlx"
+path="res://.godot/imported/22.png-b2c7b175b5902721cbcb8933b2951f46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/sprite/ampoule/22.png"
-dest_files=["res://.godot/imported/22.png-9524ce735434607167a378db8271d769.ctex"]
+source_file="res://Assets/Images/ampoules/22.png"
+dest_files=["res://.godot/imported/22.png-b2c7b175b5902721cbcb8933b2951f46.ctex"]
 
 [params]
 

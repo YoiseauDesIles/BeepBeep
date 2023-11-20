@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dom1dtynx13k0"
-path="res://.godot/imported/fils a ouvrir.png-f2a8f9b9124059003df49baa2e1a7ff5.ctex"
+uid="uid://ctasqmlfvm6jm"
+path="res://.godot/imported/symbolBtnPushed.png-85d97994d499573b8b90f64e0ca22e70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/sprite/fils a ouvrir.png"
-dest_files=["res://.godot/imported/fils a ouvrir.png-f2a8f9b9124059003df49baa2e1a7ff5.ctex"]
+source_file="res://Assets/Images/symbolBtnPushed.png"
+dest_files=["res://.godot/imported/symbolBtnPushed.png-85d97994d499573b8b90f64e0ca22e70.ctex"]
 
 [params]
 
