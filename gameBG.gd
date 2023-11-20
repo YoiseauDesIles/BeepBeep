@@ -10,5 +10,3 @@ func _ready():
 func _process(delta):
 	pass
 
-func endOfGame():
-	texture = load ("res://Assets/Images/endOfGameBG.png")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c0pv0ocq3uyir"]
+[gd_scene load_steps=35 format=3 uid="uid://c0pv0ocq3uyir"]
 
 [ext_resource type="Texture2D" uid="uid://bav62vwshgccm" path="res://Assets/Images/mainScreen.png" id="1_egjhn"]
 [ext_resource type="Script" path="res://game.gd" id="2_lrmb1"]
@@ -7,10 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dhg4r5dcv0sr" path="res://Assets/Images/codeBG.png" id="4_b6os7"]
 [ext_resource type="Texture2D" uid="uid://ceb58ii8r4qw2" path="res://Assets/Images/valiseferme.png" id="5_5xlna"]
 [ext_resource type="Texture2D" uid="uid://d321pk5okaoer" path="res://Assets/Images/symbolButton.png" id="5_7on0u"]
+[ext_resource type="Texture2D" uid="uid://bsoe374mrgehh" path="res://Assets/Images/ampoules/2.png" id="5_q0bwo"]
 [ext_resource type="Texture2D" uid="uid://8w6hqovgp2tp" path="res://Assets/Images/1.png" id="6_brxm1"]
+[ext_resource type="Texture2D" uid="uid://b73dveoas4t16" path="res://Assets/Images/ampoules/3.png" id="6_wwrnd"]
 [ext_resource type="Texture2D" uid="uid://b4j8ulhpbch46" path="res://Assets/Images/2.png" id="7_s5oe2"]
 [ext_resource type="Texture2D" uid="uid://y0y667qgeb05" path="res://Assets/Images/3.png" id="8_8rui2"]
+[ext_resource type="Texture2D" uid="uid://dvgw16sf8cvfl" path="res://Assets/Images/ampoules/1.png" id="8_rum8l"]
 [ext_resource type="Texture2D" uid="uid://mmec6chkv4ig" path="res://Assets/Images/pushBtn.png" id="9_hyn4o"]
+[ext_resource type="Script" path="res://Light.gd" id="9_u8hny"]
 [ext_resource type="Texture2D" uid="uid://7jls7c61rmc6" path="res://Assets/Images/4.png" id="10_bsn05"]
 [ext_resource type="Texture2D" uid="uid://dxl3gymyu3t6b" path="res://Assets/Images/5.png" id="11_1r5mm"]
 [ext_resource type="Texture2D" uid="uid://de3p0a47mr83t" path="res://Assets/Images/6.png" id="12_31kye"]
@@ -18,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://hkf1plwu6htw" path="res://Assets/Images/8.png" id="14_6crdq"]
 [ext_resource type="Texture2D" uid="uid://dckt7clbp1ggx" path="res://Assets/Images/9.png" id="15_ygqkc"]
 [ext_resource type="Script" path="res://briefCase.gd" id="17_rbrk0"]
+[ext_resource type="Script" path="res://cutWire.gd" id="19_bqjp3"]
+[ext_resource type="Texture2D" uid="uid://cyluspp3puj2q" path="res://Assets/Images/endOfGameBG.png" id="20_5ai8t"]
+[ext_resource type="Texture2D" uid="uid://ph751brwbutt" path="res://Assets/Images/boxClosed.png" id="21_h4ouv"]
+[ext_resource type="Script" path="res://PushBtnScene.gd" id="22_wwipj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgkml"]
 size = Vector2(522, 61)
@@ -37,279 +45,46 @@ radius = 181.792
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ncfr"]
 size = Vector2(65.3193, 33.6494)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mamfw"]
+size = Vector2(97, 442)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15ifg"]
+radius = 188.435
+
 [node name="MainScene" type="Node2D"]
 
-[node name="GameScene" type="Node2D" parent="."]
+[node name="MenuScene" type="Node2D" parent="."]
+visible = false
 script = ExtResource("2_lrmb1")
 
-[node name="Background" type="Sprite2D" parent="GameScene"]
+[node name="Background" type="Sprite2D" parent="MenuScene"]
 position = Vector2(574, 326)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_egjhn")
 script = ExtResource("3_xy032")
 
-[node name="writeTheCode" type="Area2D" parent="GameScene"]
+[node name="writeTheCode" type="Area2D" parent="MenuScene"]
 script = ExtResource("2_lrmb1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/writeTheCode"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuScene/writeTheCode"]
 position = Vector2(268, 490)
 shape = SubResource("RectangleShape2D_hgkml")
 
-[node name="pushTheButton" type="Area2D" parent="GameScene"]
+[node name="pushTheButton" type="Area2D" parent="MenuScene"]
 script = ExtResource("2_lrmb1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/pushTheButton"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuScene/pushTheButton"]
 position = Vector2(287.25, 552)
 shape = SubResource("RectangleShape2D_15eh2")
 
-[node name="cutTheStrings" type="Area2D" parent="GameScene"]
+[node name="cutWire" type="Area2D" parent="MenuScene"]
 script = ExtResource("2_lrmb1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/cutTheStrings"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuScene/cutWire"]
 position = Vector2(460.5, 614.5)
 shape = SubResource("RectangleShape2D_agaqb")
 
-[node name="CodeScene" type="Node2D" parent="GameScene"]
-visible = false
-z_index = 1
-script = ExtResource("3_333cd")
-
-[node name="Background" type="Sprite2D" parent="GameScene/CodeScene"]
-z_index = 1
-position = Vector2(578.333, 324.625)
-scale = Vector2(0.600694, 0.600694)
-texture = ExtResource("4_b6os7")
-
-[node name="bnt1" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(184.232, -1.04041)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/bnt1"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/bnt1"]
-z_index = 2
-position = Vector2(29.8698, 2.26529)
-scale = Vector2(1.01562, 1.01562)
-texture = ExtResource("5_7on0u")
-
-[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/bnt1/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("6_brxm1")
-
-[node name="btn2" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(368.464, -2.08087)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn2"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn2"]
-z_index = 2
-position = Vector2(35.5138, 2.70513)
-scale = Vector2(1.01412, 1.01412)
-texture = ExtResource("5_7on0u")
-
-[node name="Sprite2D" type="Sprite2D" parent="GameScene/CodeScene/Background/btn2/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("7_s5oe2")
-
-[node name="btn3" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(548.81, -2.70526)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn3"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn3"]
-z_index = 2
-position = Vector2(39.9538, 4.99428)
-scale = Vector2(0.925464, 0.973282)
-texture = ExtResource("5_7on0u")
-
-[node name="Sprite2D" type="Sprite2D" parent="GameScene/CodeScene/Background/btn3/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("8_8rui2")
-
-[node name="pushBtn" type="Area2D" parent="GameScene/CodeScene/Background"]
-position = Vector2(-450.034, 12.2775)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/pushBtn"]
-shape = SubResource("CircleShape2D_pvex6")
-
-[node name="Sprite2D" type="Sprite2D" parent="GameScene/CodeScene/Background/pushBtn"]
-texture = ExtResource("9_hyn4o")
-
-[node name="symbol1" type="Sprite2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(210.868, -242.428)
-texture = ExtResource("6_brxm1")
-
-[node name="symbol2" type="Sprite2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(317.411, -240.763)
-texture = ExtResource("7_s5oe2")
-
-[node name="symbol3" type="Sprite2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(437.273, -235.769)
-texture = ExtResource("8_8rui2")
-
-[node name="symbol4" type="Sprite2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(558.799, -239.098)
-texture = ExtResource("10_bsn05")
-
-[node name="btn4" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(180.902, 112.162)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn4"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn4"]
-z_index = 2
-position = Vector2(29.8698, 2.26529)
-scale = Vector2(1.01562, 1.01562)
-texture = ExtResource("5_7on0u")
-
-[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn4/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("10_bsn05")
-
-[node name="btn5" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(369.018, 112.162)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn5"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn5"]
-z_index = 2
-position = Vector2(29.8698, 2.26529)
-scale = Vector2(1.01562, 1.01562)
-texture = ExtResource("5_7on0u")
-
-[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn5/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("11_1r5mm")
-
-[node name="btn6" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(550.475, 110.497)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn6"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn6"]
-z_index = 2
-position = Vector2(29.8698, 2.26529)
-scale = Vector2(1.01562, 1.01562)
-texture = ExtResource("5_7on0u")
-
-[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn6/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("12_31kye")
-
-[node name="btn7" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(184.232, 222.035)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn7"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn7"]
-z_index = 2
-position = Vector2(29.8698, 2.26529)
-scale = Vector2(1.01562, 1.01562)
-texture = ExtResource("5_7on0u")
-
-[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn7/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("13_najy2")
-
-[node name="btn8" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(374.012, 223.7)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn8"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn8"]
-z_index = 2
-position = Vector2(29.8698, 2.26529)
-scale = Vector2(1.01562, 1.01562)
-texture = ExtResource("5_7on0u")
-
-[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn8/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("14_6crdq")
-
-[node name="btn9" type="Area2D" parent="GameScene/CodeScene/Background"]
-z_index = 2
-position = Vector2(557.134, 222.035)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/CodeScene/Background/btn9"]
-position = Vector2(31.6299, 4.16193)
-shape = SubResource("RectangleShape2D_c46bg")
-
-[node name="btnBG" type="Sprite2D" parent="GameScene/CodeScene/Background/btn9"]
-z_index = 2
-position = Vector2(29.8698, 2.26529)
-scale = Vector2(1.01562, 1.01562)
-texture = ExtResource("5_7on0u")
-
-[node name="symbol" type="Sprite2D" parent="GameScene/CodeScene/Background/btn9/btnBG"]
-position = Vector2(0.523743, 0.523743)
-scale = Vector2(1.01047, 1.01047)
-texture = ExtResource("15_ygqkc")
-
-[node name="ButtonScene" type="Node2D" parent="GameScene"]
-
-[node name="StringsScene" type="Node2D" parent="GameScene"]
-
-[node name="Briefcase" type="Sprite2D" parent="GameScene"]
-z_index = 1
-position = Vector2(634, 304)
-scale = Vector2(0.633588, 0.633588)
-texture = ExtResource("5_5xlna")
-script = ExtResource("17_rbrk0")
-
-[node name="BackBtn" type="Label" parent="GameScene"]
-visible = false
-z_index = 4
-offset_left = 1067.0
-offset_top = 602.0
-offset_right = 1133.0
-offset_bottom = 628.0
-scale = Vector2(1.51563, 1.51563)
-text = "BACK"
-
-[node name="BackArea" type="Area2D" parent="GameScene/BackBtn"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/BackBtn/BackArea"]
-position = Vector2(21.4432, 10.2267)
-shape = SubResource("RectangleShape2D_1ncfr")
-
-[node name="PushBtnScene" type="Node2D" parent="GameScene"]
-
-[node name="CutStringsScene" type="Node2D" parent="GameScene"]
+[node name="ButtonScene" type="Node2D" parent="MenuScene"]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -317,46 +92,497 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="CodeScene" type="Node2D" parent="."]
+visible = false
+z_index = 1
+script = ExtResource("3_333cd")
+
+[node name="Background" type="Sprite2D" parent="CodeScene"]
+z_index = 1
+position = Vector2(578.333, 324.625)
+scale = Vector2(0.600694, 0.600694)
+texture = ExtResource("4_b6os7")
+
+[node name="Light" type="Sprite2D" parent="CodeScene"]
+z_index = 1
+position = Vector2(306, 125)
+texture = ExtResource("8_rum8l")
+script = ExtResource("9_u8hny")
+
+[node name="bnt1" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(689, 324)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/bnt1"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/bnt1"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="CodeScene/bnt1/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("6_brxm1")
+
+[node name="btn2" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(799.667, 323.375)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/btn2"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/btn2"]
+z_index = 2
+position = Vector2(35.5138, 2.70513)
+scale = Vector2(1.01412, 1.01412)
+texture = ExtResource("5_7on0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="CodeScene/btn2/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("7_s5oe2")
+
+[node name="btn3" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(908, 323)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/btn3"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/btn3"]
+z_index = 2
+position = Vector2(39.9538, 4.99428)
+scale = Vector2(0.925464, 0.973282)
+texture = ExtResource("5_7on0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="CodeScene/btn3/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("8_8rui2")
+
+[node name="pushBtn" type="Area2D" parent="CodeScene"]
+z_index = 1
+position = Vector2(308, 332)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/pushBtn"]
+shape = SubResource("CircleShape2D_pvex6")
+
+[node name="Sprite2D" type="Sprite2D" parent="CodeScene/pushBtn"]
+texture = ExtResource("9_hyn4o")
+
+[node name="symbol1" type="Sprite2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(705, 179)
+scale = Vector2(0.600694, 0.600694)
+texture = ExtResource("6_brxm1")
+
+[node name="symbol2" type="Sprite2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(769, 180)
+scale = Vector2(0.600694, 0.600694)
+texture = ExtResource("7_s5oe2")
+
+[node name="symbol3" type="Sprite2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(841, 183)
+scale = Vector2(0.600694, 0.600694)
+texture = ExtResource("8_8rui2")
+
+[node name="symbol4" type="Sprite2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(914, 181)
+scale = Vector2(0.600694, 0.600694)
+texture = ExtResource("10_bsn05")
+
+[node name="btn4" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(687, 392)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/btn4"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/btn4"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="CodeScene/btn4/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("10_bsn05")
+
+[node name="btn5" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(800, 392)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/btn5"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/btn5"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="CodeScene/btn5/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("11_1r5mm")
+
+[node name="btn6" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(909, 391)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/btn6"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/btn6"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="CodeScene/btn6/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("12_31kye")
+
+[node name="btn7" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(689, 458)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/btn7"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/btn7"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="CodeScene/btn7/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("13_najy2")
+
+[node name="btn8" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(803, 459)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/btn8"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/btn8"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="CodeScene/btn8/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("14_6crdq")
+
+[node name="btn9" type="Area2D" parent="CodeScene"]
+z_index = 2
+position = Vector2(913, 458)
+scale = Vector2(0.600694, 0.600694)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/btn9"]
+position = Vector2(31.6299, 4.16193)
+shape = SubResource("RectangleShape2D_c46bg")
+
+[node name="btnBG" type="Sprite2D" parent="CodeScene/btn9"]
+z_index = 2
+position = Vector2(29.8698, 2.26529)
+scale = Vector2(1.01562, 1.01562)
+texture = ExtResource("5_7on0u")
+
+[node name="symbol" type="Sprite2D" parent="CodeScene/btn9/btnBG"]
+position = Vector2(0.523743, 0.523743)
+scale = Vector2(1.01047, 1.01047)
+texture = ExtResource("15_ygqkc")
+
+[node name="BackBtn" type="Label" parent="CodeScene"]
+z_index = 2
+offset_left = 1067.0
+offset_top = 602.0
+offset_right = 1133.0
+offset_bottom = 628.0
+scale = Vector2(1.51563, 1.51563)
+text = "BACK"
+
+[node name="BackArea" type="Area2D" parent="CodeScene/BackBtn"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/BackBtn/BackArea"]
+position = Vector2(21.4432, 10.2267)
+shape = SubResource("RectangleShape2D_1ncfr")
+
+[node name="CutWireScene" type="Node2D" parent="."]
+visible = false
+script = ExtResource("19_bqjp3")
+
+[node name="Background" type="Sprite2D" parent="CutWireScene"]
+position = Vector2(578.111, 325.125)
+scale = Vector2(0.602083, 0.602083)
+texture = ExtResource("20_5ai8t")
+
+[node name="Box1" type="Area2D" parent="CutWireScene"]
+
+[node name="BoxSprite" type="Sprite2D" parent="CutWireScene/Box1"]
+z_index = 2
+position = Vector2(148, 312)
+scale = Vector2(0.972938, 0.972938)
+texture = ExtResource("21_h4ouv")
+
+[node name="Wires" type="Sprite2D" parent="CutWireScene/Box1"]
+z_index = 1
+position = Vector2(163, 303)
+scale = Vector2(0.728814, 0.889831)
+
+[node name="wiresArea1" type="Area2D" parent="CutWireScene/Box1/Wires"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CutWireScene/Box1/Wires/wiresArea1"]
+position = Vector2(67.2325, 229.257)
+polygon = PackedVector2Array(-19.2093, 3.3714, -8.23254, -42.7048, -15.093, -93.2762, -41.1628, -137.105, -17.8372, -202.286, -12.3488, -257.352, -12.3488, -315.79, -28.8139, -377.6, -21.9535, -423.676, -23.3256, -461.885, -48.0232, -454.019, -48.0232, -392.209, -68.6046, -369.733, -94.6743, -349.505, -124.86, -300.057, -124.86, -265.219, -122.116, -224.762, -111.139, -201.162, -93.3023, -175.314, -78.2092, -151.714, -60.372, -128.114, -60.372, -104.514, -60.372, -66.3047, -60.372, -29.2191, -61.7441, -4.49524, -42.5349, -4.49524, -42.5349, -28.0953, -41.1628, -50.5714, -45.279, -71.9238, -45.279, -104.514, -59, -159.581, -83.6976, -193.295, -101.535, -234.876, -108.395, -270.838, -98.7906, -322.533, -45.279, -359.619, -32.9302, -316.914, -32.9302, -286.571, -32.9302, -248.362, -37.0465, -215.771, -42.5349, -189.924, -50.7674, -165.2, -32.9302, -91.0285, -28.8139, -58.4381)
+
+[node name="CollisionBox" type="CollisionShape2D" parent="CutWireScene/Box1"]
+position = Vector2(164.5, 302)
+shape = SubResource("RectangleShape2D_mamfw")
+
+[node name="Box2" type="Area2D" parent="CutWireScene"]
+position = Vector2(268, -1)
+
+[node name="BoxSprite" type="Sprite2D" parent="CutWireScene/Box2"]
+z_index = 2
+position = Vector2(148, 312)
+scale = Vector2(0.972938, 0.972938)
+texture = ExtResource("21_h4ouv")
+
+[node name="Wires" type="Sprite2D" parent="CutWireScene/Box2"]
+z_index = 1
+position = Vector2(163, 303)
+scale = Vector2(0.728814, 0.889831)
+
+[node name="wiresArea2" type="Area2D" parent="CutWireScene/Box2/Wires"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CutWireScene/Box2/Wires/wiresArea2"]
+position = Vector2(67.2325, 229.257)
+polygon = PackedVector2Array(-19.2093, 3.3714, -8.23254, -42.7048, -15.093, -93.2762, -41.1628, -137.105, -17.8372, -202.286, -12.3488, -257.352, -12.3488, -315.79, -28.8139, -377.6, -21.9535, -423.676, -23.3256, -461.885, -48.0232, -454.019, -48.0232, -392.209, -68.6046, -369.733, -94.6743, -349.505, -124.86, -300.057, -124.86, -265.219, -122.116, -224.762, -111.139, -201.162, -93.3023, -175.314, -78.2092, -151.714, -60.372, -128.114, -60.372, -104.514, -60.372, -66.3047, -60.372, -29.2191, -61.7441, -4.49524, -42.5349, -4.49524, -42.5349, -28.0953, -41.1628, -50.5714, -45.279, -71.9238, -45.279, -104.514, -59, -159.581, -83.6976, -193.295, -101.535, -234.876, -108.395, -270.838, -98.7906, -322.533, -45.279, -359.619, -32.9302, -316.914, -32.9302, -286.571, -32.9302, -248.362, -37.0465, -215.771, -42.5349, -189.924, -50.7674, -165.2, -32.9302, -91.0285, -28.8139, -58.4381)
+
+[node name="CollisionBox" type="CollisionShape2D" parent="CutWireScene/Box2"]
+position = Vector2(164.5, 302)
+shape = SubResource("RectangleShape2D_mamfw")
+
+[node name="Box3" type="Area2D" parent="CutWireScene"]
+position = Vector2(566, -1)
+
+[node name="BoxSprite" type="Sprite2D" parent="CutWireScene/Box3"]
+z_index = 2
+position = Vector2(148, 312)
+scale = Vector2(0.972938, 0.972938)
+texture = ExtResource("21_h4ouv")
+
+[node name="Wires" type="Sprite2D" parent="CutWireScene/Box3"]
+z_index = 1
+position = Vector2(163, 303)
+scale = Vector2(0.728814, 0.889831)
+
+[node name="wiresArea3" type="Area2D" parent="CutWireScene/Box3/Wires"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CutWireScene/Box3/Wires/wiresArea3"]
+position = Vector2(67.2325, 229.257)
+polygon = PackedVector2Array(-19.2093, 3.3714, -8.23254, -42.7048, -15.093, -93.2762, -41.1628, -137.105, -17.8372, -202.286, -12.3488, -257.352, -12.3488, -315.79, -28.8139, -377.6, -21.9535, -423.676, -23.3256, -461.885, -48.0232, -454.019, -48.0232, -392.209, -68.6046, -369.733, -94.6743, -349.505, -124.86, -300.057, -124.86, -265.219, -122.116, -224.762, -111.139, -201.162, -93.3023, -175.314, -78.2092, -151.714, -60.372, -128.114, -60.372, -104.514, -60.372, -66.3047, -60.372, -29.2191, -61.7441, -4.49524, -42.5349, -4.49524, -42.5349, -28.0953, -41.1628, -50.5714, -45.279, -71.9238, -45.279, -104.514, -59, -159.581, -83.6976, -193.295, -101.535, -234.876, -108.395, -270.838, -98.7906, -322.533, -45.279, -359.619, -32.9302, -316.914, -32.9302, -286.571, -32.9302, -248.362, -37.0465, -215.771, -42.5349, -189.924, -50.7674, -165.2, -32.9302, -91.0285, -28.8139, -58.4381)
+
+[node name="CollisionBox" type="CollisionShape2D" parent="CutWireScene/Box3"]
+position = Vector2(164.5, 302)
+shape = SubResource("RectangleShape2D_mamfw")
+
+[node name="Box4" type="Area2D" parent="CutWireScene"]
+position = Vector2(845, 9)
+
+[node name="BoxSprite" type="Sprite2D" parent="CutWireScene/Box4"]
+z_index = 2
+position = Vector2(148, 312)
+scale = Vector2(0.972938, 0.972938)
+texture = ExtResource("21_h4ouv")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="CutWireScene/Box4"]
+position = Vector2(164.5, 302)
+shape = SubResource("RectangleShape2D_mamfw")
+
+[node name="Wires" type="Sprite2D" parent="CutWireScene/Box4"]
+z_index = 1
+position = Vector2(163, 303)
+scale = Vector2(0.728814, 0.889831)
+
+[node name="wiresArea4" type="Area2D" parent="CutWireScene/Box4/Wires"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CutWireScene/Box4/Wires/wiresArea4"]
+position = Vector2(67.2325, 229.257)
+polygon = PackedVector2Array(-19.2093, 3.3714, -8.23254, -42.7048, -15.093, -93.2762, -41.1628, -137.105, -17.8372, -202.286, -12.3488, -257.352, -12.3488, -315.79, -28.8139, -377.6, -21.9535, -423.676, -23.3256, -461.885, -48.0232, -454.019, -48.0232, -392.209, -68.6046, -369.733, -94.6743, -349.505, -124.86, -300.057, -124.86, -265.219, -122.116, -224.762, -111.139, -201.162, -93.3023, -175.314, -78.2092, -151.714, -60.372, -128.114, -60.372, -104.514, -60.372, -66.3047, -60.372, -29.2191, -61.7441, -4.49524, -42.5349, -4.49524, -42.5349, -28.0953, -41.1628, -50.5714, -45.279, -71.9238, -45.279, -104.514, -59, -159.581, -83.6976, -193.295, -101.535, -234.876, -108.395, -270.838, -98.7906, -322.533, -45.279, -359.619, -32.9302, -316.914, -32.9302, -286.571, -32.9302, -248.362, -37.0465, -215.771, -42.5349, -189.924, -50.7674, -165.2, -32.9302, -91.0285, -28.8139, -58.4381)
+
+[node name="BackBtn" type="Label" parent="CutWireScene"]
+z_index = 2
+offset_left = 1067.0
+offset_top = 602.0
+offset_right = 1133.0
+offset_bottom = 628.0
+scale = Vector2(1.51563, 1.51563)
+text = "BACK"
+
+[node name="BackArea" type="Area2D" parent="CutWireScene/BackBtn"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutWireScene/BackBtn/BackArea"]
+position = Vector2(21.4432, 10.2267)
+shape = SubResource("RectangleShape2D_1ncfr")
+
+[node name="PushBtnScene" type="Node2D" parent="."]
+script = ExtResource("22_wwipj")
+
+[node name="Background" type="Sprite2D" parent="PushBtnScene"]
+position = Vector2(578, 324)
+scale = Vector2(0.604167, 0.604167)
+texture = ExtResource("20_5ai8t")
+
+[node name="Light1" type="Sprite2D" parent="PushBtnScene"]
+position = Vector2(218, 203)
+scale = Vector2(1.59091, 1.59091)
+texture = ExtResource("8_rum8l")
+
+[node name="Light2" type="Sprite2D" parent="PushBtnScene"]
+position = Vector2(484.25, 218.102)
+scale = Vector2(1.60843, 1.60843)
+texture = ExtResource("5_q0bwo")
+
+[node name="Light3" type="Sprite2D" parent="PushBtnScene"]
+position = Vector2(724.25, 223.329)
+scale = Vector2(1.7807, 1.7807)
+texture = ExtResource("6_wwrnd")
+
+[node name="Light4" type="Sprite2D" parent="PushBtnScene"]
+position = Vector2(964.625, 209.046)
+scale = Vector2(1.83772, 1.83772)
+texture = ExtResource("6_wwrnd")
+
+[node name="Button" type="Sprite2D" parent="PushBtnScene"]
+position = Vector2(591, 503)
+scale = Vector2(0.557851, 0.557851)
+texture = ExtResource("9_hyn4o")
+
+[node name="Area2D" type="Area2D" parent="PushBtnScene/Button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushBtnScene/Button/Area2D"]
+shape = SubResource("CircleShape2D_15ifg")
+
 [node name="Audio" type="Node2D" parent="."]
 
-[connection signal="input_event" from="GameScene/writeTheCode" to="GameScene" method="_on_write_the_code_input_event"]
-[connection signal="mouse_entered" from="GameScene/writeTheCode" to="GameScene/writeTheCode" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/writeTheCode" to="GameScene/writeTheCode" method="changeCursorBack"]
-[connection signal="mouse_entered" from="GameScene/pushTheButton" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/pushTheButton" to="GameScene" method="changeCursorBack"]
-[connection signal="mouse_entered" from="GameScene/cutTheStrings" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/cutTheStrings" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/bnt1" to="GameScene/CodeScene" method="_on_bnt_1_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/bnt1" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/bnt1" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/btn2" to="GameScene/CodeScene" method="_on_btn_2_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn2" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn2" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/btn3" to="GameScene/CodeScene" method="_on_btn_3_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn3" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn3" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/pushBtn" to="GameScene/CodeScene" method="_on_push_btn_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/pushBtn" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/pushBtn" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/btn4" to="GameScene/CodeScene" method="_on_btn_4_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn4" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn4" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/btn5" to="GameScene/CodeScene" method="_on_btn_5_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn5" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn5" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/btn6" to="GameScene/CodeScene" method="_on_btn_6_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn6" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn6" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/btn7" to="GameScene/CodeScene" method="_on_btn_7_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn7" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn7" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/btn8" to="GameScene/CodeScene" method="_on_btn_8_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn8" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn8" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/CodeScene/Background/btn9" to="GameScene/CodeScene" method="_on_btn_9_input_event"]
-[connection signal="mouse_entered" from="GameScene/CodeScene/Background/btn9" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/CodeScene/Background/btn9" to="GameScene" method="changeCursorBack"]
-[connection signal="input_event" from="GameScene/BackBtn/BackArea" to="GameScene" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="GameScene/BackBtn/BackArea" to="GameScene" method="_on_back_area_input_event"]
-[connection signal="mouse_entered" from="GameScene/BackBtn/BackArea" to="GameScene" method="changeCursorHand"]
-[connection signal="mouse_exited" from="GameScene/BackBtn/BackArea" to="GameScene" method="changeCursorBack"]
+[node name="EndOfGameScene" type="Node2D" parent="."]
+visible = false
+
+[node name="Background" type="Sprite2D" parent="EndOfGameScene"]
+position = Vector2(578, 323.5)
+scale = Vector2(0.602778, 0.602778)
+texture = ExtResource("20_5ai8t")
+
+[node name="Briefcase" type="Sprite2D" parent="EndOfGameScene"]
+z_index = 1
+position = Vector2(600, 323)
+scale = Vector2(0.509542, 0.509542)
+texture = ExtResource("5_5xlna")
+script = ExtResource("17_rbrk0")
+
+[connection signal="input_event" from="MenuScene/writeTheCode" to="MenuScene" method="_on_write_the_code_input_event"]
+[connection signal="mouse_entered" from="MenuScene/writeTheCode" to="MenuScene/writeTheCode" method="changeCursorHand"]
+[connection signal="mouse_exited" from="MenuScene/writeTheCode" to="MenuScene/writeTheCode" method="changeCursorBack"]
+[connection signal="mouse_entered" from="MenuScene/pushTheButton" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="MenuScene/pushTheButton" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="MenuScene/cutWire" to="MenuScene" method="_on_cut_wire_input_event"]
+[connection signal="mouse_entered" from="MenuScene/cutWire" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="MenuScene/cutWire" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/bnt1" to="CodeScene" method="_on_bnt_1_input_event"]
+[connection signal="mouse_entered" from="CodeScene/bnt1" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/bnt1" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/btn2" to="CodeScene" method="_on_btn_2_input_event"]
+[connection signal="mouse_entered" from="CodeScene/btn2" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/btn2" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/btn3" to="CodeScene" method="_on_btn_3_input_event"]
+[connection signal="mouse_entered" from="CodeScene/btn3" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/btn3" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/pushBtn" to="CodeScene" method="_on_push_btn_input_event"]
+[connection signal="mouse_entered" from="CodeScene/pushBtn" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/pushBtn" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/btn4" to="CodeScene" method="_on_btn_4_input_event"]
+[connection signal="mouse_entered" from="CodeScene/btn4" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/btn4" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/btn5" to="CodeScene" method="_on_btn_5_input_event"]
+[connection signal="mouse_entered" from="CodeScene/btn5" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/btn5" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/btn6" to="CodeScene" method="_on_btn_6_input_event"]
+[connection signal="mouse_entered" from="CodeScene/btn6" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/btn6" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/btn7" to="CodeScene" method="_on_btn_7_input_event"]
+[connection signal="mouse_entered" from="CodeScene/btn7" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/btn7" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/btn8" to="CodeScene" method="_on_btn_8_input_event"]
+[connection signal="mouse_entered" from="CodeScene/btn8" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/btn8" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/btn9" to="CodeScene" method="_on_btn_9_input_event"]
+[connection signal="mouse_entered" from="CodeScene/btn9" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/btn9" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CodeScene/BackBtn/BackArea" to="MenuScene" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="CodeScene/BackBtn/BackArea" to="MenuScene" method="_on_back_area_input_event"]
+[connection signal="mouse_entered" from="CodeScene/BackBtn/BackArea" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CodeScene/BackBtn/BackArea" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/Box1" to="CutWireScene" method="_on_box_1_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/Box1" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/Box1" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/Box1/Wires/wiresArea1" to="CutWireScene" method="_on_wires_area_1_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/Box1/Wires/wiresArea1" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/Box1/Wires/wiresArea1" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/Box2" to="CutWireScene" method="_on_box_2_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/Box2" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/Box2" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/Box2/Wires/wiresArea2" to="CutWireScene" method="_on_wires_area_2_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/Box2/Wires/wiresArea2" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/Box2/Wires/wiresArea2" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/Box3" to="CutWireScene" method="_on_box_3_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/Box3" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/Box3" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/Box3/Wires/wiresArea3" to="CutWireScene" method="_on_wires_area_3_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/Box3/Wires/wiresArea3" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/Box3/Wires/wiresArea3" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/Box4" to="CutWireScene" method="_on_box_4_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/Box4" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/Box4" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/Box4/Wires/wiresArea4" to="CutWireScene" method="_on_wires_area_4_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/Box4/Wires/wiresArea4" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/Box4/Wires/wiresArea4" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="CutWireScene/BackBtn/BackArea" to="MenuScene" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="CutWireScene/BackBtn/BackArea" to="MenuScene" method="_on_back_area_input_event"]
+[connection signal="mouse_entered" from="CutWireScene/BackBtn/BackArea" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="CutWireScene/BackBtn/BackArea" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="PushBtnScene/Button/Area2D" to="PushBtnScene" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="PushBtnScene/Button/Area2D" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="PushBtnScene/Button/Area2D" to="MenuScene" method="changeCursorBack"]

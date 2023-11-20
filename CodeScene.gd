@@ -10,30 +10,29 @@ var symbol7 = load("res://Assets/Images/7.png")
 var symbol8 = load("res://Assets/Images/8.png")
 var symbol9 = load("res://Assets/Images/9.png")
 
-@onready var code1 = $Background/symbol1
-@onready var code2 = $Background/symbol2
-@onready var code3 = $Background/symbol3
-@onready var code4 = $Background/symbol4
-@onready var code5 = $Background/symbol5
-@onready var code6 = $Background/symbol6
-@onready var code7 = $Background/symbol7
-@onready var code8 = $Background/symbol8
-@onready var code9 = $Background/symbol9
+@onready var code1 = $symbol1
+@onready var code2 = $symbol2
+@onready var code3 = $symbol3
+@onready var code4 = $symbol4
 
-@onready var btn1 = $Background/bnt1/btnBG
-@onready var btn2 = $Background/btn2/btnBG
-@onready var btn3 = $Background/btn3/btnBG
-@onready var btn4 = $Background/btn4/btnBG
-@onready var btn5 = $Background/btn5/btnBG
-@onready var btn6 = $Background/btn6/btnBG
-@onready var btn7 = $Background/btn7/btnBG
-@onready var btn8 = $Background/btn8/btnBG
-@onready var btn9 = $Background/btn9/btnBG
+@onready var btn1 = $bnt1/btnBG
+@onready var btn2 = $btn2/btnBG
+@onready var btn3 = $btn3/btnBG
+@onready var btn4 = $btn4/btnBG
+@onready var btn5 = $btn5/btnBG
+@onready var btn6 = $btn6/btnBG
+@onready var btn7 = $btn7/btnBG
+@onready var btn8 = $btn8/btnBG
+@onready var btn9 = $btn9/btnBG
 
-@onready var pushedBtn = $Background/pushBtn/Sprite2D
+@onready var pushedBtn = $pushBtn/Sprite2D
+
+@onready var light = $Light
 
 @onready var clickedBtnTexture = load ("res://Assets/Images/symbolBtnPushed.png")
 @onready var pushedBtnTexture = load ("res://Assets/Images/pushedBtn.png")
+
+
 
 var symbolDict = {
 	1 : symbol1,
@@ -48,7 +47,6 @@ var symbolDict = {
 }
 var combination : Array = []
 var currCombination : Array = []
-var combinationDone = false
 var eventProcessed = false
 
 var codeState = "standby"
@@ -72,9 +70,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if codeState == "success":
+		light.texture = load("res://Assets/Images/ampoules/11.png")
 
-			
 
 func _on_bnt_1_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
