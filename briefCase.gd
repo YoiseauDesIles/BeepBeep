@@ -1,4 +1,5 @@
-extends Sprite2D
+extends Node2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,8 +10,16 @@ func _process(delta):
 	pass
 
 func gameSuccess():
-	texture = load ("res://Assets/Images/success.png")
+	$Briefcase.texture = load ("res://Assets/Images/success.png")
 
 
 func gameOver():
-	texture = load ("res://Assets/Images/failure.png")
+	$Briefcase.texture = load ("res://Assets/Images/failure.png")
+
+func setRestart():
+	$restartBtn/Area2D.visible = true
+	$restartBtn/Area2D/CollisionShape2D.disabled = false
+
+func gameRestart():
+	$restartBtn/Area2D.visible = false
+	$restartBtn/Area2D/CollisionShape2D.disabled = true

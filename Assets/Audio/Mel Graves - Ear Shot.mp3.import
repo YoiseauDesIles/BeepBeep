@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfv2lv16q4uo3"
+path="res://.godot/imported/Mel Graves - Ear Shot.mp3-b00855f587b12f561f21ed39694f5687.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Mel Graves - Ear Shot.mp3"
+dest_files=["res://.godot/imported/Mel Graves - Ear Shot.mp3-b00855f587b12f561f21ed39694f5687.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

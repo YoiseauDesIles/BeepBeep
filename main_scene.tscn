@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c0pv0ocq3uyir"]
+[gd_scene load_steps=47 format=3 uid="uid://c0pv0ocq3uyir"]
 
 [ext_resource type="Texture2D" uid="uid://bav62vwshgccm" path="res://Assets/Images/mainScreen.png" id="1_egjhn"]
 [ext_resource type="Script" path="res://game.gd" id="2_lrmb1"]
@@ -26,6 +26,17 @@
 [ext_resource type="Texture2D" uid="uid://cyluspp3puj2q" path="res://Assets/Images/endOfGameBG.png" id="20_5ai8t"]
 [ext_resource type="Texture2D" uid="uid://ph751brwbutt" path="res://Assets/Images/boxClosed.png" id="21_h4ouv"]
 [ext_resource type="Script" path="res://PushBtnScene.gd" id="22_wwipj"]
+[ext_resource type="AudioStream" uid="uid://dfv2lv16q4uo3" path="res://Assets/Audio/Mel Graves - Ear Shot.mp3" id="25_cqwgg"]
+[ext_resource type="Texture2D" uid="uid://c6y30t2ur36pl" path="res://Assets/Images/ampoules/4.png" id="25_dvc07"]
+[ext_resource type="Script" path="res://audioMainTheme.gd" id="26_dr4nj"]
+[ext_resource type="FontFile" uid="uid://b3r3shgd13wt2" path="res://Assets/Fonts/smudgy-dot-stamps-font/SmudgyDotStamps-OOP.ttf" id="26_hyeyo"]
+[ext_resource type="AudioStream" uid="uid://dk6uyuy4bk22e" path="res://Assets/Audio/beep.mp3" id="28_f38bp"]
+[ext_resource type="Script" path="res://beep.gd" id="29_rw4lf"]
+[ext_resource type="Script" path="res://briefCaseAudio.gd" id="30_4pt6m"]
+[ext_resource type="Script" path="res://writeCodeAudio.gd" id="31_qssa4"]
+[ext_resource type="Script" path="res://cutWiresAudio.gd" id="32_13rej"]
+[ext_resource type="Script" path="res://pushBtnAudio.gd" id="33_cn72e"]
+[ext_resource type="Script" path="res://menuAudio.gd" id="34_276g5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgkml"]
 size = Vector2(522, 61)
@@ -51,10 +62,12 @@ size = Vector2(97, 442)
 [sub_resource type="CircleShape2D" id="CircleShape2D_15ifg"]
 radius = 188.435
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n00bu"]
+size = Vector2(296, 91)
+
 [node name="MainScene" type="Node2D"]
 
 [node name="MenuScene" type="Node2D" parent="."]
-visible = false
 script = ExtResource("2_lrmb1")
 
 [node name="Background" type="Sprite2D" parent="MenuScene"]
@@ -115,7 +128,7 @@ position = Vector2(689, 324)
 scale = Vector2(0.600694, 0.600694)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CodeScene/bnt1"]
-position = Vector2(31.6299, 4.16193)
+position = Vector2(31.6298, 4.16193)
 shape = SubResource("RectangleShape2D_c46bg")
 
 [node name="btnBG" type="Sprite2D" parent="CodeScene/bnt1"]
@@ -331,6 +344,8 @@ offset_top = 602.0
 offset_right = 1133.0
 offset_bottom = 628.0
 scale = Vector2(1.51563, 1.51563)
+theme_override_colors/font_color = Color(0.870588, 0.666667, 0.192157, 1)
+theme_override_fonts/font = ExtResource("26_hyeyo")
 text = "BACK"
 
 [node name="BackArea" type="Area2D" parent="CodeScene/BackBtn"]
@@ -450,6 +465,8 @@ offset_top = 602.0
 offset_right = 1133.0
 offset_bottom = 628.0
 scale = Vector2(1.51563, 1.51563)
+theme_override_colors/font_color = Color(0.870588, 0.666667, 0.192157, 1)
+theme_override_fonts/font = ExtResource("26_hyeyo")
 text = "BACK"
 
 [node name="BackArea" type="Area2D" parent="CutWireScene/BackBtn"]
@@ -459,6 +476,7 @@ position = Vector2(21.4432, 10.2267)
 shape = SubResource("RectangleShape2D_1ncfr")
 
 [node name="PushBtnScene" type="Node2D" parent="."]
+visible = false
 script = ExtResource("22_wwipj")
 
 [node name="Background" type="Sprite2D" parent="PushBtnScene"]
@@ -484,7 +502,7 @@ texture = ExtResource("6_wwrnd")
 [node name="Light4" type="Sprite2D" parent="PushBtnScene"]
 position = Vector2(964.625, 209.046)
 scale = Vector2(1.83772, 1.83772)
-texture = ExtResource("6_wwrnd")
+texture = ExtResource("25_dvc07")
 
 [node name="Button" type="Sprite2D" parent="PushBtnScene"]
 position = Vector2(591, 503)
@@ -496,10 +514,52 @@ texture = ExtResource("9_hyn4o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushBtnScene/Button/Area2D"]
 shape = SubResource("CircleShape2D_15ifg")
 
+[node name="BackBtn" type="Label" parent="PushBtnScene"]
+z_index = 2
+offset_left = 1067.0
+offset_top = 602.0
+offset_right = 1133.0
+offset_bottom = 628.0
+scale = Vector2(1.51563, 1.51563)
+theme_override_colors/font_color = Color(0.870588, 0.666667, 0.192157, 1)
+theme_override_fonts/font = ExtResource("26_hyeyo")
+text = "BACK"
+
+[node name="BackArea" type="Area2D" parent="PushBtnScene/BackBtn"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushBtnScene/BackBtn/BackArea"]
+position = Vector2(21.4432, 10.2267)
+shape = SubResource("RectangleShape2D_1ncfr")
+
 [node name="Audio" type="Node2D" parent="."]
+
+[node name="mainTheme" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("25_cqwgg")
+volume_db = -10.782
+script = ExtResource("26_dr4nj")
+
+[node name="beep" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("28_f38bp")
+script = ExtResource("29_rw4lf")
+
+[node name="briefcase" type="AudioStreamPlayer2D" parent="Audio"]
+script = ExtResource("30_4pt6m")
+
+[node name="writeCode" type="AudioStreamPlayer2D" parent="Audio"]
+script = ExtResource("31_qssa4")
+
+[node name="cutWires" type="AudioStreamPlayer2D" parent="Audio"]
+script = ExtResource("32_13rej")
+
+[node name="menu" type="AudioStreamPlayer" parent="Audio"]
+script = ExtResource("34_276g5")
+
+[node name="pushBtn" type="AudioStreamPlayer2D" parent="Audio"]
+script = ExtResource("33_cn72e")
 
 [node name="EndOfGameScene" type="Node2D" parent="."]
 visible = false
+script = ExtResource("17_rbrk0")
 
 [node name="Background" type="Sprite2D" parent="EndOfGameScene"]
 position = Vector2(578, 323.5)
@@ -511,11 +571,31 @@ z_index = 1
 position = Vector2(600, 323)
 scale = Vector2(0.509542, 0.509542)
 texture = ExtResource("5_5xlna")
-script = ExtResource("17_rbrk0")
+
+[node name="restartBtn" type="Label" parent="EndOfGameScene"]
+offset_left = 874.0
+offset_top = 552.0
+offset_right = 1148.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0.870588, 0.666667, 0.192157, 1)
+theme_override_fonts/font = ExtResource("26_hyeyo")
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
+
+[node name="Area2D" type="Area2D" parent="EndOfGameScene/restartBtn"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndOfGameScene/restartBtn/Area2D"]
+visible = false
+position = Vector2(138, 35.5)
+shape = SubResource("RectangleShape2D_n00bu")
+disabled = true
 
 [connection signal="input_event" from="MenuScene/writeTheCode" to="MenuScene" method="_on_write_the_code_input_event"]
 [connection signal="mouse_entered" from="MenuScene/writeTheCode" to="MenuScene/writeTheCode" method="changeCursorHand"]
 [connection signal="mouse_exited" from="MenuScene/writeTheCode" to="MenuScene/writeTheCode" method="changeCursorBack"]
+[connection signal="input_event" from="MenuScene/pushTheButton" to="MenuScene" method="_on_push_the_button_input_event"]
 [connection signal="mouse_entered" from="MenuScene/pushTheButton" to="MenuScene" method="changeCursorHand"]
 [connection signal="mouse_exited" from="MenuScene/pushTheButton" to="MenuScene" method="changeCursorBack"]
 [connection signal="input_event" from="MenuScene/cutWire" to="MenuScene" method="_on_cut_wire_input_event"]
@@ -586,3 +666,10 @@ script = ExtResource("17_rbrk0")
 [connection signal="input_event" from="PushBtnScene/Button/Area2D" to="PushBtnScene" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="PushBtnScene/Button/Area2D" to="MenuScene" method="changeCursorHand"]
 [connection signal="mouse_exited" from="PushBtnScene/Button/Area2D" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="PushBtnScene/BackBtn/BackArea" to="MenuScene" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="PushBtnScene/BackBtn/BackArea" to="MenuScene" method="_on_back_area_input_event"]
+[connection signal="mouse_entered" from="PushBtnScene/BackBtn/BackArea" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="PushBtnScene/BackBtn/BackArea" to="MenuScene" method="changeCursorBack"]
+[connection signal="input_event" from="EndOfGameScene/restartBtn/Area2D" to="MenuScene" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="EndOfGameScene/restartBtn/Area2D" to="MenuScene" method="changeCursorHand"]
+[connection signal="mouse_exited" from="EndOfGameScene/restartBtn/Area2D" to="MenuScene" method="changeCursorBack"]

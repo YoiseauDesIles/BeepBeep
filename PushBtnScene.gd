@@ -11,12 +11,16 @@ var pushedBtnTexture = load("res://Assets/Images/pushedBtn.png")
 
 var currGauge = 0
 var gaugeIncrValue = 5
-var incrSpeed = 0
-var thresholds : Array = [100, 200, 300, 350]
+var timerCnt = 0
+var timerThreshold = 50
+var thresholds : Array = [1000, 2000, 3000, 3300]
+var lightStatus: Array = [false, false, false, false]
 var eventProcessed = false
 var btnPushed = false
 
 var pushedGameStatus = "STANDBY"
+
+@onready var pushBtnSound = get_node("/root/MainScene/Audio/pushBtn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,31 +29,54 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	riseGauge()
 	updateLights() 
+	handleLightStatus()
 
+func riseGauge():
+	if btnPushed:
+		if timerCnt > timerThreshold:
+			gaugeIncrValue = randi() % 20 
+			timerCnt = 0
+		currGauge += gaugeIncrValue
+		timerCnt += 1
+		
 func updateLights():
-	print(currGauge)
-	if currGauge >= thresholds[0]:
+	if currGauge >= thresholds[0] and lightStatus[0] == false:
+		pushBtnSound.light()
 		light1.texture = load("res://Assets/Images/ampoules/11.png")
-	if currGauge >= thresholds[1]:
+		lightStatus[0] = true
+	if currGauge >= thresholds[1] and lightStatus[1] == false:
+		pushBtnSound.light()
 		light2.texture = load("res://Assets/Images/ampoules/22.png")
-	if currGauge >= thresholds[2]:
+		lightStatus[1] = true
+	if currGauge >= thresholds[2] and lightStatus[2] == false:
+		pushBtnSound.light()
 		light3.texture = load("res://Assets/Images/ampoules/33.png")
-		if (btnPushed == false):
+		lightStatus[2] = true
+	if currGauge >= thresholds[3] and lightStatus[3] == false:
+		pushBtnSound.light()
+		light4.texture = load("res://Assets/Images/ampoules/44.png")
+		lightStatus[3] = true
+	
+func handleLightStatus():
+		if (btnPushed == false and lightStatus[2] == true and lightStatus[3] == false):
 			pushedGameStatus = "success"
-	if currGauge >= thresholds[3]:
-		light4.texture = load("res://Assets/Images/ampoules/33.png")
-		pushedGameStatus = "failure"
-
+		elif (lightStatus[3] == true):
+			pushedGameStatus = "failure"
+			
+func getGameStatus():
+	return pushedGameStatus
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
+			pushBtnSound.pushButton()
 			button.texture = pushedBtnTexture
-			
-			currGauge += gaugeIncrValue
 			btnPushed = true
 		
 		else:
 			button.texture = btnTexture
 			btnPushed = false
+			
+

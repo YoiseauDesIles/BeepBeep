@@ -32,7 +32,7 @@ var symbol9 = load("res://Assets/Images/9.png")
 @onready var clickedBtnTexture = load ("res://Assets/Images/symbolBtnPushed.png")
 @onready var pushedBtnTexture = load ("res://Assets/Images/pushedBtn.png")
 
-
+@onready var gameSound = get_node("/root/MainScene/Audio/writeCode")
 
 var symbolDict = {
 	1 : symbol1,
@@ -77,6 +77,7 @@ func _process(delta):
 func _on_bnt_1_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn1.texture = clickedBtnTexture
 			currCombination.append(1)
@@ -88,6 +89,7 @@ func _on_bnt_1_input_event(viewport, event, shape_idx):
 func _on_btn_2_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn2.texture = clickedBtnTexture
 			currCombination.append(2)
@@ -99,6 +101,7 @@ func _on_btn_2_input_event(viewport, event, shape_idx):
 func _on_btn_3_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn3.texture = clickedBtnTexture
 			currCombination.append(3)
@@ -109,6 +112,7 @@ func _on_btn_3_input_event(viewport, event, shape_idx):
 func _on_btn_4_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn4.texture = clickedBtnTexture
 			currCombination.append(4)
@@ -120,6 +124,7 @@ func _on_btn_4_input_event(viewport, event, shape_idx):
 func _on_btn_5_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn5.texture = clickedBtnTexture
 			currCombination.append(5)
@@ -131,6 +136,7 @@ func _on_btn_5_input_event(viewport, event, shape_idx):
 func _on_btn_6_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn6.texture = clickedBtnTexture
 			currCombination.append(6)
@@ -142,6 +148,7 @@ func _on_btn_6_input_event(viewport, event, shape_idx):
 func _on_btn_7_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn7.texture = clickedBtnTexture
 			currCombination.append(7)
@@ -153,6 +160,7 @@ func _on_btn_7_input_event(viewport, event, shape_idx):
 func _on_btn_8_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn8.texture = clickedBtnTexture
 			currCombination.append(8)
@@ -164,6 +172,7 @@ func _on_btn_8_input_event(viewport, event, shape_idx):
 func _on_btn_9_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not eventProcessed:
+			gameSound.pressKey()
 			eventProcessed = true
 			btn9.texture = clickedBtnTexture
 			currCombination.append(9)
@@ -178,7 +187,8 @@ func _on_push_btn_input_event(viewport, event, shape_idx):
 		
 func checkCombination():
 	
-	if currCombination.size() == 4:
+	if currCombination.size() >= 4:
+		gameSound.pushButton()
 		pushedBtn.texture = pushedBtnTexture
 		if currCombination == combination:
 			codeState = "success"
